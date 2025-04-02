@@ -26,7 +26,7 @@ pipeline {
                 // Có thể thêm bước build nếu cần (như webpack)
             }
         }
-        stage('Deploy') {
+stage('Deploy') {
             steps {
                 sshPublisher(
                     publishers: [
@@ -34,9 +34,10 @@ pipeline {
                             configName: 'pbf42',  // Tên SSH server trong cấu hình Jenkins
                             transfers: [
                                 sshTransfer(
-                                    sourceFiles: '**/*',
+                                    sourceFiles: '**/*',  // Gửi tất cả file
+                                    excludes: 'node_modules/**',  // Loại bỏ node_modules
                                     remoteDirectory: 'nodejs-jenkins',
-                                    execCommand: 'source /home/aqertybds/nodevenv/nodejs-jenkins/18/bin/activate && cd /home/aqertybds/nodejs-jenkins && npm install && pm2 restart app || pm2 start server.js --name app'
+                                    execCommand: 'source /home/aqertybds/nodevenv/nodejs-jenkins/18/bin/activate && cd /home/aqertybds/nodejs-jenkins && pm2 restart app || pm2 start app.js --name app'
                                 )
                             ],
                             verbose: true
