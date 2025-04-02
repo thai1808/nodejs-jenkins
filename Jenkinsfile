@@ -37,7 +37,8 @@ stage('Deploy') {
                                     sourceFiles: '**/*',  // Gửi tất cả file
                                     excludes: 'node_modules/**',  // Loại bỏ node_modules
                                     remoteDirectory: 'nodejs-jenkins',
-                                    execCommand: 'source /home/aqertybds/nodevenv/nodejs-jenkins/18/bin/activate && cd /home/aqertybds/nodejs-jenkins && pm2 restart app || pm2 start app.js --name app'
+                                    execCommand: 'source /home/aqertybds/nodevenv/nodejs-jenkins/18/bin/activate && cd 
+/home/aqertybds/nodejs-jenkins && npm install && npm install pm2 -g && pm2 restart app || pm2 start app.js --name app'
                                 )
                             ],
                             verbose: true
