@@ -49,10 +49,10 @@ stage('Deploy') {
     }
     post {
         success {
-            sh 'curl -s -X POST https://api.telegram.org/bot8180694857:AAGcZY_A-cp3Lc8tXiL2N7U1MVGBBGr8EaY/sendMessage -d chat_id=1300039362 -d text="Build ${JOB_NAME} #${BUILD_NUMBER} thành công! URL: ${BUILD_URL}"'
+            sh 'curl -s -X POST https://api.telegram.org/bot6503951829:AAHoJfF-HN858dY6E7sMTCLFBJs42uzFI4w/sendMessage -d chat_id=-1001634041658 -d text="Build ${JOB_NAME} #${BUILD_NUMBER} thành công! URL: ${BUILD_URL}"'
         }
         failure {
-            sh 'curl -s -X POST https://api.telegram.org/bot8180694857:AAGcZY_A-cp3Lc8tXiL2N7U1MVGBBGr8EaY/sendMessage -d chat_id=1300039362 -d text="Build ${JOB_NAME} #${BUILD_NUMBER} thất bại! URL: ${BUILD_URL}"'
+            sh 'curl -s -X POST https://api.telegram.org/bot6503951829:AAHoJfF-HN858dY6E7sMTCLFBJs42uzFI4w/sendMessage -d chat_id=-1001634041658 -d text="Build ${JOB_NAME} #${BUILD_NUMBER} thất bại! URL: ${BUILD_URL}"'
         }
     }
 }
